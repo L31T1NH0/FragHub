@@ -7,6 +7,11 @@ export default function WLRCalculator() {
   const [losses, setLosses] = useState(0);
   const wlr = losses === 0 ? wins : (wins / losses).toFixed(2);
 
+    const reset = () => {
+      setWins(0);
+      setLosses(0);
+    };
+
   return (
     <div>
       <h2 className="text-lg font-semibold mb-4 text-zinc-100">
@@ -28,7 +33,13 @@ export default function WLRCalculator() {
         value={losses}
         onChange={(e) => setLosses(Number(e.target.value))}
       />
-      <p className="text-2xl font-bold text-zinc-100">WLR: {wlr}</p>
+      <p className="mb-4 text-2xl font-bold text-zinc-100">WLR: {wlr}</p>
+      <button
+        onClick={reset}
+        className="bg-zinc-700 hover:bg-zinc-600 transition-colors px-2 py-1 rounded-md text-zinc-100 text-sm"
+      >
+        Resetar
+      </button>
     </div>
   );
 }
