@@ -55,7 +55,7 @@ export default function KDRCalculator() {
         <div>
           <small className="text-zinc-300 mb-2 block">assistências</small>
           <input
-            type="number"
+            type="text"
             placeholder="Assists"
             className="w-full mb-4 p-2 bg-zinc-700 rounded-md text-zinc-100"
             value={assists}

@@ -15,7 +15,8 @@ export default function CPSTester() {
     if (timeLeft === 0) setIsActive(false);
   }, [isActive, timeLeft]);
 
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault(); // Evita o menu de contexto com botão direito
     if (!isActive && timeLeft > 0) setIsActive(true);
     if (isActive) setClicks(clicks + 1);
   };
@@ -33,8 +34,9 @@ export default function CPSTester() {
       <h2 className="text-lg font-semibold mb-4 text-zinc-100">CPS Tester</h2>
       <button
         onClick={handleClick}
+        onContextMenu={handleClick} // Captura cliques do botão direito
         disabled={timeLeft === 0}
-        className="bg-zinc-700 hover:bg-zinc-600 transition-colors p-8 w-full h-95 rounded-md text-zinc-100 font-bold mb-4"
+        className="bg-zinc-700 hover:bg-zinc-600 transition-colors p-8 w-full h-90 rounded-md text-zinc-100 font-bold mb-4"
       >
         Clique aqui! ({clicks})
       </button>
